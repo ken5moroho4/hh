@@ -1,0 +1,30 @@
+#title{
+    text-align: center;
+  }
+  /* ユーザー名とパスワード */
+  #login_table{
+    display: block;
+  }
+  #login_tabel1{
+    text-align: center;
+  }
+  /* 送信ボタン */
+  
+  /* 新規アカウント作成ボタン */
+  #form{
+    display: inline-block;
+    margin-left: 500px;
+  }
+  #new_acount button{
+    width: 150px;
+    height: 40px;
+  }
+  /* パスワード忘れ */
+  #forgot_pass{
+    text-align: center;
+  }
+  #forgot_pass button{
+    width: 250px;
+    height: 40px;
+  }
+  
