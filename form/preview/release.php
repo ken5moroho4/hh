@@ -31,6 +31,7 @@ foreach ($stmt as $row) {
   }
   $stop++;
 
+<<<<<<< Updated upstream
 echo'
                     <div class="col-12 col-md-6 col-lg-4 mt-5">
                             <a href="#">
@@ -46,17 +47,53 @@ echo'
                                     </div>
                             </a>
                     </div>'; }
+=======
+  echo'
+  <div class="col-12 col-md-6 col-lg-4 mt-5">
+          <a href=';echo $row['link'];echo'>
+                  <div class="card">
+                          <img class="card-img-top"  src="../../img/startup-594090_1920.jpg"
+                                  alt="Card image cap" width = "360px">
+                          <div class="card-body">
+                                  <div class="badge badge-secondary">NEW</div>
+                                  <span class="data">'; echo $row['date'];echo '</span>
+                                  <h1 class="card-title text-center">'; echo $row['title']; echo'</h1>
+
+                          </div>
+                  </div>
+          </a>
+  </div>
+  <style>
+  .card{
+          margin-top:30px;
+  }
+  </style>'; }
+>>>>>>> Stashed changes
 ?>
 <!-- セクションの閉じたぐ -->
 <?php echo '</div>
 </div>'?>
 <div class="col-12 text-center">
+<<<<<<< Updated upstream
     <a class="btn moreLink" href="#" role="button">
             <p>もっと読む</p></a>
                 </div>
 </section>
 <?php
 file_put_contents( 'release.html', ob_get_contents() );
+=======
+<a class="btn moreLink" href="#" role="button">
+                <p>もっと読む</p>
+        </a>
+</div>
+</section>
+<?php
+file_put_contents( 'release.html', ob_get_contents() );
+echo "<script>alert('ホームページが更新されました')</script>";
+echo "<h1 class='text-center'>上記の画面が挿入されます。</h1>";
+echo "<a href = '../form.php'><h2 class='text-center'>投稿フォームへ</h2></a>";
+file_put_contents( 'release_production.html', ob_get_contents() );
+>>>>>>> Stashed changes
  
 // 出力用バッファをクリア(消去)し、出力のバッファリングをオフにする
 ob_end_clean();

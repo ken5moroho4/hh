@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 img{
     width: 360px;
     height: 200px;
@@ -5,3 +6,24 @@ img{
 .moreLink{
     padding-top: 0px;
 }
+=======
+
+/* 公開ボタン、もっと見るボタン */
+.release{
+    background-color: #680010;
+    color: white;
+    font-size: 1.5rem;
+    margin: 30px auto;
+    border-color: transparent;
+    color: white;
+}
+body{
+    background-color: azure;
+}
+.card2{
+  display:none;
+}
+.card3{
+    display:none;
+  }
+>>>>>>> Stashed changes

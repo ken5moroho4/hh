@@ -22,8 +22,13 @@ foreach ($stmt as $row) {
   $link = $row['link'];
   echo '削除する投稿内容';
   echo "<form method ='post' action ='delete_comp.php'>
+<<<<<<< Updated upstream
   <button value=$delete name='delete' class='form-inline'><h1>はい</h1></button></form>";
   echo "<a href = ../form.php><button class='float-left'><h1>戻る</h1></button></a>";
+=======
+  <button value=$delete name='delete' class='btn-danger'>はい</button></form>";
+  echo "<a href = ../form.php><button class='btn-danger'>いいえ</button></a>";
+>>>>>>> Stashed changes
 
   
 

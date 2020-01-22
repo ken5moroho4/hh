@@ -12,17 +12,22 @@
 
 <h1>miracleave株式会社 社員専用ページ</h1>
 <!-- 入力フォーム -->
-<form method="POST" action="form.confirm.php">
+<form method="POST" action="form.confirm.php" enctype="multipart/form-data">
   <input name="today" type="date" required/>
- 
 <br><br>
 <input type="text" name="title" placeholder = "投稿ページのタイトルを入れてください" required  style="width:300px;">
 <br><br>
 <textarea name="contents" rows="8" cols="40" placeholder="投稿する内容を入力してください" required></textarea>
 <br><br>
+<<<<<<< Updated upstream
 <input type="text" name="link" placeholder = "プレビューのリンク先として表示する文字" required  style="width:300px;">
+=======
+<input type="text" name="link" placeholder = "リンク先のURLを入力してください" required  style="width:300px;">
 <br><br>
-
+<label for="upimg">画像ファイル</label>
+<input type="file" name="upimg" id="upimg" />
+>>>>>>> Stashed changes
+<br><br>
 <input type="submit" name="btn1" value="投稿する" class="btn btn-warning">
 </form>
 <h3>投稿履歴</h3>
@@ -38,13 +43,17 @@ try{
   echo "<table border = 1><tr><td>日付</td><td>タイトル</td><td>編集ボタン</td><td>削除ボタン</td></tr></table>";
   foreach ($stmt as $row) {
     // 投稿履歴のフォーム
-    echo "<table border = 1><tr>
+    echo "<table border = 1 class='table-hover'><tr>
     <td>";
     echo $row['date'];
     echo "</td><td>";
     echo $row['title'];
     echo "</td><td>";
     $edit =$row['id'];
+<<<<<<< Updated upstream
+=======
+    echo "</td><td>";
+>>>>>>> Stashed changes
     echo "<form method ='post' action ='edit/edit.php'class='text-center'>
     <button value=$edit name='edit' class='btn btn-primary'>編集</button></form>";
     echo "</td><td>";
@@ -69,7 +78,8 @@ echo $e->getMessage() . PHP_EOL;
       date VARCHAR(10),
       concept VARCHAR(10),
       title VARCHAR(10),
-      link VARCHAR(10)
+      link VARCHAR(10),
+      upimg blob
     )");
 }catch (Exception $e) {
   echo $e->getMessage() . PHP_EOL;

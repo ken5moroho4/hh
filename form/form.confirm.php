@@ -9,6 +9,10 @@ $today = $_POST["today"];
 $concepts = $_POST["contents"];
 $title = $_POST["title"];
 $link = $_POST["link"];
+if($_FILES["upimg"]["name"]){
+  $upimg = ($_FILES['upimg']['name']);
+  // $upimg = file_get_contents($_FILES['upimg']['tmp_name']);
+  }
 echo "<table class='table'>
 <thead>
   <tr>
@@ -28,9 +32,9 @@ echo " <tbody>
 </tbody>";
 // データベースに内容登録
 $sql = "INSERT INTO form(
-  date, concept, title,link
+  date, concept, title,link,upimg
 ) VALUES (
-'${today}','${concepts}','${title}','${link}'
+'${today}','${concepts}','${title}','${link}','${upimg}'
 )";
 $res = $pdo->query($sql);
 }catch (Exception $e) {

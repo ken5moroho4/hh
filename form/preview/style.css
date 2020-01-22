@@ -185,7 +185,11 @@ nav {
     border-radius: 1.1rem;
     border: 1px solid rgb(211, 211, 211);
     color: darkslategray;
-
+}
+.card2 {
+    border-radius: 1.1rem;
+    border: 1px solid rgb(211, 211, 211);
+    color: darkslategray;
 }
 
 .card-img-top {
@@ -202,7 +206,7 @@ nav {
 
 .moreLink p {
     background-color: var(--miracleave);
-    border-radius: 1rem;
+
 }
 
 .moreLink p:hover {
