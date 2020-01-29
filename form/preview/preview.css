@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-img{
-    width: 360px;
-    height: 200px;
-} 
-.moreLink{
-    padding-top: 0px;
-}
-=======
 
 /* 公開ボタン、もっと見るボタン */
 .release{
@@ -20,10 +11,9 @@ img{
 body{
     background-color: azure;
 }
-.card2{
+/* .card2{
   display:none;
 }
 .card3{
     display:none;
-  }
->>>>>>> Stashed changes
+  } */

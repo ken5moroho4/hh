@@ -1,3 +1,4 @@
+<!-- 投稿完了フォーム -->
 <link rel="stylesheet" href="../css/bootstrap.css">
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -6,13 +7,17 @@
 try{
     $pdo = new PDO ("sqlite:C:/xampp/htdocs/php/sqlite-tools-win32-x86-3300100/form.sqlite3");
 $today = $_POST["today"];
+$today =  date("Y/m/d" ,strtotime($today));
 $concepts = $_POST["contents"];
 $title = $_POST["title"];
 $link = $_POST["link"];
+// 画像データ受け取り
 if($_FILES["upimg"]["name"]){
   $upimg = ($_FILES['upimg']['name']);
-  // $upimg = file_get_contents($_FILES['upimg']['tmp_name']);
+   $upimg = file_get_contents($_FILES['upimg']['tmp_name']);
   }
+  $upimg = base64_encode($upimg);
+
 echo "<table class='table'>
 <thead>
   <tr>
@@ -32,10 +37,11 @@ echo " <tbody>
 </tbody>";
 // データベースに内容登録
 $sql = "INSERT INTO form(
-  date, concept, title,link,upimg
+  date, concept, title,link
 ) VALUES (
-'${today}','${concepts}','${title}','${link}','${upimg}'
+'${today}','${concepts}','${title}','${link}'
 )";
+
 $res = $pdo->query($sql);
 }catch (Exception $e) {
   echo $e->getMessage() . PHP_EOL;
@@ -43,4 +49,28 @@ $res = $pdo->query($sql);
     echo "<h1 class='text-center'>投稿成功しました。</h1>";
     echo "<br>";
     echo '<div class="text-center"><button><a href ="form.php" class="h2 text-center">戻る</a></button></div>';
+?>
+<!-- 上で投稿したidを抽出、画像にひもづけ -->
+<?php
+$i = 1;
+  $sql1 = "SELECT * FROM form order by id desc";
+  $stmt = $pdo->query($sql1);
+  foreach ($stmt as $row) {
+    if($i >= 2){
+    break;
+  }else{
+    $id =  $row['id'];
+    $i++;
+  }
+  }
+?>
+<!-- 画像表示 -->
+<img src="data:image/jpg;base64,<?php echo $upimg; ?>" width = "100px">
+<?php
+$img_path = $id;
+    $fileData = base64_decode($upimg);
+    $fileName = $img_path.'.png';
+    file_put_contents('form_img/'.$fileName, $fileData);
+
+
 ?>
