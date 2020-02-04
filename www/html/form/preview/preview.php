@@ -27,13 +27,15 @@ foreach ($stmt as $row) {
     break;
   }
   $stop++;
-  //   $a = "card";
-  //   if($stop > 3){
-  //         $a = "card2";
-  //   }
-  //   if($stop > 6){
-  //         $a = "card3";
-  //   }
+
+  $form_date =  $row['date'];
+  $one_week_ago =  date("Y/m/d", strtotime("-7 day"));
+  if($form_date > $one_week_ago&&date("Y/m/d") >=$form_date)
+  {
+        $new = "New";
+  }else{
+          $new = "";
+  }
   // プレビューフォーム
   echo '
                     <div class="col-12 col-md-6 col-lg-4">
@@ -47,7 +49,7 @@ foreach ($stmt as $row) {
   echo '"
                                                     alt="Card image cap" width = "360px" height = "200px">
                                             <div class="car-body">
-                                                    <div class="badge badge-danger">NEW</div>
+                                                    <div class="badge badge-danger">';echo $new;echo'</div>
                                                     <span class="data">';
   echo $row['date'];
   echo '</span>
@@ -88,26 +90,7 @@ foreach ($stmt as $row) {
                     ';
 }
 ?>
-<script>
-  // 一週間前いないであればnewの表示
-  // 一週間前取得
-  var ago = new Date();
-  var year = ago.getFullYear();
-  var month = ago.getMonth() + 1;
-  var week = ago.getDay();
-  ago.setDate(ago.getDate() - 7);
-  var day = ago.getDate();
-  var one_ago = (year + "年" + month + "月" + day + "日 ");
-  alert(one_ago);
-  // 本日の日付
-  var hiduke = new Date();
-  var year = hiduke.getFullYear();
-  var month = hiduke.getMonth() + 1;
-  var week = hiduke.getDay();
-  var day = hiduke.getDate();
-  var now = (year + "年" + month + "月" + day + "日 ");
-  alert(now);
-</script>
+
 <!--  var num = 0;
  $button = document.getElementById('button');
  $(function () {
